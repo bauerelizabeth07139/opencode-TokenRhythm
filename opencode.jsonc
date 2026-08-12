@@ -1,0 +1,147 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "tokenrhythm": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "TokenRhythm (基元律动)",
+      "options": {
+        "baseURL": "https://tokenrhythm.studio/v1"
+      },
+      "models": {
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 384000
+          },
+          "reasoning": true
+        },
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro",
+          "limit": {
+            "context": 1000000,
+            "output": 384000
+          },
+          "reasoning": true
+        },
+        "deepseek-v4-flash-0731": {
+          "name": "DeepSeek V4 Flash 0731",
+          "limit": {
+            "context": 1000000,
+            "output": 384000
+          },
+          "reasoning": true
+        },
+        "seed-2.1-pro": {
+          "name": "Seed 2.1 Pro",
+          "limit": {
+            "context": 262100,
+            "output": 131100
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "seed-2.1-turbo": {
+          "name": "Seed 2.1 Turbo",
+          "limit": {
+            "context": 262100,
+            "output": 131100
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "glm-5": {
+          "name": "GLM-5",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "reasoning": true
+        },
+        "glm-5.1": {
+          "name": "GLM-5.1",
+          "limit": {
+            "context": 200000,
+            "output": 128000
+          },
+          "reasoning": true
+        },
+        "glm-5.2": {
+          "name": "GLM-5.2",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "reasoning": true
+        },
+        "kimi-k2.5": {
+          "name": "Kimi K2.5",
+          "limit": {
+            "context": 256000,
+            "output": 64000
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "kimi-k2.6": {
+          "name": "Kimi K2.6",
+          "limit": {
+            "context": 256000,
+            "output": 128000
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code",
+          "limit": {
+            "context": 256000,
+            "output": 128000
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "mimo-v2.5-pro": {
+          "name": "Mimo V2.5 Pro",
+          "limit": {
+            "context": 256000,
+            "output": 256000
+          },
+          "reasoning": true
+        },
+        "minimax-m2.5": {
+          "name": "MiniMax M2.5",
+          "limit": {
+            "context": 200000,
+            "output": 200000
+          },
+          "reasoning": true
+        },
+        "minimax-m2.7": {
+          "name": "MiniMax M2.7",
+          "limit": {
+            "context": 200000,
+            "output": 192000
+          },
+          "reasoning": true
+        },
+        "qwen3.7-max": {
+          "name": "Qwen3.7 Max",
+          "limit": {
+            "context": 1000000,
+            "output": 131100
+          },
+          "reasoning": true
+        },
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max",
+          "limit": {
+            "context": 1000000,
+            "output": 131100
+          },
+          "reasoning": true
+        }
+      }
+    }
+  }
+}
