@@ -42,6 +42,17 @@ copy opencode.jsonc %USERPROFILE%\.config\opencode\opencode.jsonc
 # 或合并到已有配置
 ```
 
+## 一键安装 (Windows)
+
+从 [Releases](https://github.com/bauerelizabeth07139/opencode-TokenRhythm/releases) 下载 `opencode-TokenRhythm-Setup.exe` 并运行，自动将配置安装到 `~/.config/opencode/opencode.jsonc`（已存在则先备份为 `.bak`）。
+
+源码见 `installer/Installer.cs`，使用 .NET 编译器构建：
+
+```bash
+csc /nologo /optimize+ /target:exe /out:opencode-TokenRhythm-Setup.exe ^
+    /resource:opencode.jsonc,opencode.jsonc installer\Installer.cs
+```
+
 ## 配置 API Key
 
 在 opencode 中输入 `/connect`，选择 **Other**，Provider ID 填 `tokenrhythm`，粘贴你的 TokenRhythm API Key（在 [tokenrhythm.studio](https://tokenrhythm.studio) 注册后获取）。
