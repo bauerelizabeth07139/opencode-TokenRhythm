@@ -1,0 +1,94 @@
+name: Build Complete opencode exe (TokenRhythm)
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'opencode version to patch (e.g. 1.18.18). Empty = latest release'
+        required: false
+        default: ''
+      release_tag:
+        description: 'GitHub release tag to publish (e.g. v1.2.0)'
+        required: false
+        default: 'v1.2.0'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Locate / install 7-Zip
+        shell: pwsh
+        run: |
+          $sz = 'C:\Program Files\7-Zip\7z.exe'
+          if (-not (Test-Path $sz)) {
+            choco install 7zip.install -y --no-progress
+          }
+          echo "7zip_ok"
+
+      - name: Resolve opencode version
+        id: ver
+        shell: pwsh
+        run: |
+          $v = "${{ github.event.inputs.version }}".Trim()
+          if (-not $v) {
+            $rel = Invoke-RestMethod -Headers @{ 'User-Agent' = 'opencode' } -Uri 'https://api.github.com/repos/anomalyco/opencode/releases/latest'
+            $v = $rel.tag_name.TrimStart('v')
+          }
+          "version=$v" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding ascii
+
+      - name: Download official opencode desktop installer
+        shell: pwsh
+        run: |
+          $v = "${{ steps.ver.outputs.version }}"
+          curl.exe -L -f -sS -o opencode-desktop-win-x64.exe "https://github.com/anomalyco/opencode/releases/download/v$v/opencode-desktop-win-x64.exe"
+          if ($LASTEXITCODE -ne 0) { throw "download failed" }
+          Get-Item opencode-desktop-win-x64.exe | Select-Object Name, Length
+
+      - name: Build complete exe with TokenRhythm preset baked in
+        shell: pwsh
+        run: |
+          python scripts/build-portable.py `
+            --exe opencode-desktop-win-x64.exe `
+            --config opencode.jsonc `
+            --out opencode-desktop-win-x64-TokenRhythm.exe `
+            --7z 'C:\Program Files\7-Zip\7z.exe'
+          Get-Item opencode-desktop-win-x64-TokenRhythm.exe | Select-Object Name, Length
+
+      - name: Generate checksums
+        shell: pwsh
+        run: |
+          $f = (Get-FileHash opencode-desktop-win-x64-TokenRhythm.exe -Algorithm SHA256).Hash.ToLower()
+          "$f  opencode-desktop-win-x64-TokenRhythm.exe" | Out-File SHA256SUMS.txt -Encoding ascii
+          if (Test-Path opencode-TokenRhythm-Setup.exe) {
+            $g = (Get-FileHash opencode-TokenRhythm-Setup.exe -Algorithm SHA256).Hash.ToLower()
+            "$g  opencode-TokenRhythm-Setup.exe" | Add-Content SHA256SUMS.txt -Encoding ascii
+          }
+
+      - name: Create / update release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.release_tag }}
+          name: OpenCode ${{ steps.ver.outputs.version }} + TokenRhythm
+          body: |
+            Complete opencode desktop app (win-x64) with the TokenRhythm provider preset baked into the default config.
+
+            - opencode version: `${{ steps.ver.outputs.version }}`
+            - `opencode-desktop-win-x64-TokenRhythm.exe` — full standalone installer (no prior opencode install required)
+            - `opencode-TokenRhythm-Setup.exe` — lightweight config-only installer for existing installs
+            - Checksums in `SHA256SUMS.txt`
+          files: |
+            opencode-desktop-win-x64-TokenRhythm.exe
+            opencode-TokenRhythm-Setup.exe
+            SHA256SUMS.txt
+          fail_on_unmatched_files: false
