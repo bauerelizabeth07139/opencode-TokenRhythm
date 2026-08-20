@@ -36,6 +36,7 @@ jobs:
         run: ${{ matrix.run }}
 
       - name: Verify artifact
+        shell: bash
         run: ls -la dist
 
       - name: Upload artifact
