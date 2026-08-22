@@ -32,6 +32,14 @@
           },
           "reasoning": true
         },
+        "deepseek-v4-pro-0813": {
+          "name": "DeepSeek V4 Pro 0813",
+          "limit": {
+            "context": 1000000,
+            "output": 384000
+          },
+          "reasoning": true
+        },
         "seed-2.1-pro": {
           "name": "Seed 2.1 Pro",
           "limit": {
@@ -96,7 +104,7 @@
           "name": "Kimi K2.7 Code",
           "limit": {
             "context": 256000,
-            "output": 128000
+            "output": 16000
           },
           "reasoning": true,
           "attachment": true
@@ -125,6 +133,14 @@
           },
           "reasoning": true
         },
+        "qwenvl-2.0": {
+          "name": "Qwen Image 2.0",
+          "limit": {
+            "context": 0,
+            "output": 0
+          },
+          "reasoning": false
+        },
         "qwen3.7-max": {
           "name": "Qwen3.7 Max",
           "limit": {
@@ -138,6 +154,80 @@
           "limit": {
             "context": 1000000,
             "output": 131100
+          },
+          "reasoning": true,
+          "attachment": true
+        },
+        "wan2.7-image": {
+          "name": "Wan 2.7 Image",
+          "limit": {
+            "context": 0,
+            "output": 0
+          },
+          "reasoning": false
+        }
+      }
+    },
+    "nvidia": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "NVIDIA NIM",
+      "options": {
+        "baseURL": "https://integrate.api.nvidia.com/v1"
+      },
+      "models": {
+        "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+          "name": "Llama 3.1 Nemotron Ultra 253B",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "nvidia/llama-3.3-nemotron-super-49b-v1": {
+          "name": "Llama 3.3 Nemotron Super 49B",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "deepseek-ai/deepseek-r1": {
+          "name": "DeepSeek R1 (NVIDIA)",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "mistralai/mistral-large-2-instruct": {
+          "name": "Mistral Large 2",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "qwen/qwen2.5-72b-instruct": {
+          "name": "Qwen 2.5 72B",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "meta/llama-4-maverick-17b-128e-instruct": {
+          "name": "Llama 4 Maverick 17B",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          },
+          "reasoning": true
+        },
+        "meta/llama-4-scout-17b-16e-instruct": {
+          "name": "Llama 4 Scout 17B",
+          "limit": {
+            "context": 128000,
+            "output": 8192
           },
           "reasoning": true
         }
