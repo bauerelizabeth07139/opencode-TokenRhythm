@@ -12,7 +12,10 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "TokenRhythm (基元律动)",
       "options": {
-        "baseURL": "https://tokenrhythm.studio/v1"
+        "baseURL": "https://tokenrhythm.studio/v1",
+        "headers": {
+          "Authorization": "Bearer sk_tr_RaQxED919wgOkWnWW9ALNx8B2mCdLkxcrM2Pici5LGs"
+        }
       },
       "models": {
         "deepseek-v4-flash": {
@@ -54,7 +57,10 @@
             "output": 131100
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
         },
         "seed-2.1-turbo": {
           "name": "Seed 2.1 Turbo",
@@ -63,7 +69,10 @@
             "output": 131100
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
         },
         "glm-5": {
           "name": "GLM-5",
@@ -96,7 +105,10 @@
             "output": 64000
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"]
+          }
         },
         "kimi-k2.6": {
           "name": "Kimi K2.6",
@@ -105,7 +117,10 @@
             "output": 128000
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"]
+          }
         },
         "kimi-k2.7-code": {
           "name": "Kimi K2.7 Code",
@@ -114,7 +129,10 @@
             "output": 16000
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"]
+          }
         },
         "mimo-v2.5-pro": {
           "name": "Mimo V2.5 Pro",
@@ -163,7 +181,10 @@
             "output": 131100
           },
           "reasoning": true,
-          "attachment": true
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image"]
+          }
         },
         "wan2.7-image": {
           "name": "Wan 2.7 Image",
@@ -179,7 +200,10 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "NVIDIA NIM",
       "options": {
-        "baseURL": "https://integrate.api.nvidia.com/v1"
+        "baseURL": "https://integrate.api.nvidia.com/v1",
+        "headers": {
+          "Authorization": "Bearer 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"
+        }
       },
       "models": {
         "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
