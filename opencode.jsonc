@@ -1,5 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "tokenrhythm-image-gen": {
+      "type": "local",
+      "command": ["python", "C:\\Users\\vipuser\\.config\\opencode\\mcp\\tokenrhythm_image_mcp.py"],
+      "enabled": true
+    }
+  },
   "provider": {
     "tokenrhythm": {
       "npm": "@ai-sdk/openai-compatible",
