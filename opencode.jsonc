@@ -3,8 +3,11 @@
   "mcp": {
     "tokenrhythm-image-gen": {
       "type": "local",
-      "command": ["python", "C:\\Users\\vipuser\\.config\\opencode\\mcp\\tokenrhythm_image_mcp.py"],
-      "enabled": true
+      "command": ["python", "~/.config/opencode/mcp/tokenrhythm_image_mcp.py"],
+      "enabled": true,
+      "environment": {
+        "TOKENRHYTHM_API_KEY": ""
+      }
     }
   },
   "provider": {
@@ -12,10 +15,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "TokenRhythm (基元律动)",
       "options": {
-        "baseURL": "https://tokenrhythm.studio/v1",
-        "headers": {
-          "Authorization": "Bearer sk_tr_RaQxED919wgOkWnWW9ALNx8B2mCdLkxcrM2Pici5LGs"
-        }
+        "baseURL": "https://tokenrhythm.studio/v1"
       },
       "models": {
         "deepseek-v4-flash": {
@@ -158,7 +158,7 @@
           },
           "reasoning": true
         },
-        "qwenvl-2.0": {
+        "qwen-image-2.0": {
           "name": "Qwen Image 2.0",
           "limit": {
             "context": 0,
@@ -200,10 +200,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "NVIDIA NIM",
       "options": {
-        "baseURL": "https://integrate.api.nvidia.com/v1",
-        "headers": {
-          "Authorization": "Bearer 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"
-        }
+        "baseURL": "https://integrate.api.nvidia.com/v1"
       },
       "models": {
         "nvidia/llama-3.1-nemotron-ultra-253b-v1": {

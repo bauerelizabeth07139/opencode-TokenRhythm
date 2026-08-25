@@ -14,7 +14,9 @@ import time
 from pathlib import Path
 
 API_BASE = "https://tokenrhythm.studio/v1"
-API_KEY = "sk_tr_RaQxED919wgOkWnWW9ALNx8B2mCdLkxcrM2Pici5LGs"
+API_KEY = os.environ.get("TOKENRHYTHM_API_KEY", "")
+if not API_KEY:
+    log("WARNING: TOKENRHYTHM_API_KEY environment variable not set")
 MODEL_ID = "qwen-image-2.0"
 
 def log(msg):
