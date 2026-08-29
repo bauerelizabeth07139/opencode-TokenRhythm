@@ -6,34 +6,35 @@
 
 - 接入 TokenRhythm 统一 API 端点：`https://tokenrhythm.studio/v1`
 - 接入 NVIDIA NIM API 端点：`https://integrate.api.nvidia.com/v1`
-- 内置 19 个 TokenRhythm 模型 + 7 个 NVIDIA NIM 模型
-- 推理模型（DeepSeek V4、GLM-5、Kimi K2.x、Mimo、MiniMax M2.x、Qwen3.x）开启推理（`reasoning: true`）
-- 多模态模型（Seed 2.1 Pro/Turbo: 图像+视频、Kimi K2.5/K2.6/K2.7-code: 图像、Qwen3.8 Max: 图像）开启附件支持（`attachment: true`）
+- 内置 20 个 TokenRhythm 模型 + 7 个 NVIDIA NIM 模型
+- 推理模型（DeepSeek V4、GLM-5.x、Kimi K2.x、LongCat、Mimo、MiniMax M2.x、Qwen3.x）开启推理（`reasoning: true`）
+- 多模态模型（Qwen3.8-27B/GLM-5.3 Flash/Qwen3.7 Flash: 图像+视频、Seed 2.1 Pro/Turbo: 图像+视频、Kimi K2.5/K2.6/K2.7-code: 图像）开启附件支持（`attachment: true`）
 - 按官方文档填写了各模型的上下文窗口与最大输出长度
 
 ## TokenRhythm 模型列表
 
 | 模型 | 上下文 | 最大输出 | 推理 | 附件 | 模态 |
 |------|--------|---------|------|------|------|
-| deepseek-v4-flash | 1M | 384K | ✓ | - | 文本 |
-| deepseek-v4-pro | 1M | 384K | ✓ | - | 文本 |
+| qwen3.8-27b | 1M | 131K | ✓ | ✓ | 文本/图像/视频 |
 | deepseek-v4-flash-0731 | 1M | 384K | ✓ | - | 文本 |
 | deepseek-v4-pro-0813 | 1M | 384K | ✓ | - | 文本 |
-| seed-2.1-pro | 262.1K | 131.1K | ✓ | ✓ | 文本/图像/视频 |
-| seed-2.1-turbo | 262.1K | 131.1K | ✓ | ✓ | 文本/图像/视频 |
 | glm-5 | 1M | 128K | ✓ | - | 文本 |
 | glm-5.1 | 200K | 128K | ✓ | - | 文本 |
 | glm-5.2 | 1M | 128K | ✓ | - | 文本 |
+| glm-5.3 | 1.05M | 131K | ✓ | - | 文本 |
+| glm-5.3-flash | 1.05M | 131K | ✓ | ✓ | 文本/图像/视频 |
 | kimi-k2.5 | 256K | 64K | ✓ | ✓ | 文本/图像 |
 | kimi-k2.6 | 256K | 128K | ✓ | ✓ | 文本/图像 |
 | kimi-k2.7-code | 256K | 16K | ✓ | ✓ | 文本/图像 |
+| longcat-2.0 | 1M | 128K | ✓ | - | 文本 |
+| seed-2.1-pro | 262K | 131K | ✓ | ✓ | 文本/图像/视频 |
+| seed-2.1-turbo | 262K | 131K | ✓ | ✓ | 文本/图像/视频 |
 | mimo-v2.5-pro | 256K | 256K | ✓ | - | 文本 |
 | minimax-m2.5 | 200K | 200K | ✓ | - | 文本 |
 | minimax-m2.7 | 200K | 192K | ✓ | - | 文本 |
-| qwenvl-2.0 | - | - | - | - | 图像生成 |
-| qwen3.7-max | 1M | 131.1K | ✓ | - | 文本 |
-| qwen3.8-max | 1M | 131.1K | ✓ | ✓ | 文本/图像 |
-| wan2.7-image | - | - | - | - | 图像生成 |
+| qwen-image-2.0 | - | - | - | - | 图像生成 |
+| qwen3.7-flash | 1M | 131K | ✓ | ✓ | 文本/图像/视频 |
+| qwen3.7-max | 1M | 131K | ✓ | - | 文本 |
 
 ## NVIDIA NIM 模型列表
 

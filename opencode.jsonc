@@ -18,43 +18,11 @@
         "baseURL": "https://tokenrhythm.studio/v1"
       },
       "models": {
-        "deepseek-v4-flash": {
-          "name": "DeepSeek V4 Flash",
+        "qwen3.8-27b": {
+          "name": "Qwen3.8 27B",
           "limit": {
             "context": 1000000,
-            "output": 384000
-          },
-          "reasoning": true
-        },
-        "deepseek-v4-pro": {
-          "name": "DeepSeek V4 Pro",
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "reasoning": true
-        },
-        "deepseek-v4-flash-0731": {
-          "name": "DeepSeek V4 Flash 0731",
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "reasoning": true
-        },
-        "deepseek-v4-pro-0813": {
-          "name": "DeepSeek V4 Pro 0813",
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "reasoning": true
-        },
-        "seed-2.1-pro": {
-          "name": "Seed 2.1 Pro",
-          "limit": {
-            "context": 262100,
-            "output": 131100
+            "output": 131072
           },
           "reasoning": true,
           "attachment": true,
@@ -62,16 +30,26 @@
             "input": ["text", "image", "video"]
           }
         },
-        "seed-2.1-turbo": {
-          "name": "Seed 2.1 Turbo",
+        "deepseek-v4-flash-0731": {
+          "name": "DeepSeek V4 Flash 0731",
           "limit": {
-            "context": 262100,
-            "output": 131100
+            "context": 1000000,
+            "output": 384000
           },
           "reasoning": true,
-          "attachment": true,
           "modalities": {
-            "input": ["text", "image", "video"]
+            "input": ["text"]
+          }
+        },
+        "deepseek-v4-pro-0813": {
+          "name": "DeepSeek V4 Pro 0813",
+          "limit": {
+            "context": 1000000,
+            "output": 384000
+          },
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
           }
         },
         "glm-5": {
@@ -80,7 +58,10 @@
             "context": 1000000,
             "output": 128000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
         },
         "glm-5.1": {
           "name": "GLM-5.1",
@@ -88,7 +69,10 @@
             "context": 200000,
             "output": 128000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
         },
         "glm-5.2": {
           "name": "GLM-5.2",
@@ -96,7 +80,33 @@
             "context": 1000000,
             "output": 128000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
+        },
+        "glm-5.3": {
+          "name": "GLM-5.3",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
+        },
+        "glm-5.3-flash": {
+          "name": "GLM-5.3 Flash",
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          },
+          "reasoning": true,
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
         },
         "kimi-k2.5": {
           "name": "Kimi K2.5",
@@ -134,13 +144,51 @@
             "input": ["text", "image"]
           }
         },
+        "longcat-2.0": {
+          "name": "LongCat 2.0",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
+        },
+        "seed-2.1-pro": {
+          "name": "Seed 2.1 Pro",
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          },
+          "reasoning": true,
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
+        },
+        "seed-2.1-turbo": {
+          "name": "Seed 2.1 Turbo",
+          "limit": {
+            "context": 262144,
+            "output": 131072
+          },
+          "reasoning": true,
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
+        },
         "mimo-v2.5-pro": {
           "name": "Mimo V2.5 Pro",
           "limit": {
             "context": 256000,
             "output": 256000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
         },
         "minimax-m2.5": {
           "name": "MiniMax M2.5",
@@ -148,7 +196,10 @@
             "context": 200000,
             "output": 200000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
         },
         "minimax-m2.7": {
           "name": "MiniMax M2.7",
@@ -156,7 +207,10 @@
             "context": 200000,
             "output": 192000
           },
-          "reasoning": true
+          "reasoning": true,
+          "modalities": {
+            "input": ["text"]
+          }
         },
         "qwen-image-2.0": {
           "name": "Qwen Image 2.0",
@@ -164,35 +218,33 @@
             "context": 0,
             "output": 0
           },
-          "reasoning": false
+          "reasoning": false,
+          "modalities": {
+            "input": ["text"]
+          }
+        },
+        "qwen3.7-flash": {
+          "name": "Qwen3.7 Flash",
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          },
+          "reasoning": true,
+          "attachment": true,
+          "modalities": {
+            "input": ["text", "image", "video"]
+          }
         },
         "qwen3.7-max": {
           "name": "Qwen3.7 Max",
           "limit": {
             "context": 1000000,
-            "output": 131100
-          },
-          "reasoning": true
-        },
-        "qwen3.8-max": {
-          "name": "Qwen3.8 Max",
-          "limit": {
-            "context": 1000000,
-            "output": 131100
+            "output": 131072
           },
           "reasoning": true,
-          "attachment": true,
           "modalities": {
-            "input": ["text", "image"]
+            "input": ["text"]
           }
-        },
-        "wan2.7-image": {
-          "name": "Wan 2.7 Image",
-          "limit": {
-            "context": 0,
-            "output": 0
-          },
-          "reasoning": false
         }
       }
     },
