@@ -14,14 +14,15 @@ import time
 from pathlib import Path
 
 API_BASE = "https://tokenrhythm.studio/v1"
-API_KEY = os.environ.get("TOKENRHYTHM_API_KEY", "")
-if not API_KEY:
-    log("WARNING: TOKENRHYTHM_API_KEY environment variable not set")
 MODEL_ID = "qwen-image-2.0"
 
 def log(msg):
     with open(os.path.join(tempfile.gettempdir(), "tokenrhythm-mcp.log"), "a", encoding="utf-8") as f:
         f.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {msg}\n")
+
+API_KEY = os.environ.get("TOKENRHYTHM_API_KEY", "")
+if not API_KEY:
+    log("WARNING: TOKENRHYTHM_API_KEY environment variable not set")
 
 def send_response(response):
     data = json.dumps(response, ensure_ascii=False)

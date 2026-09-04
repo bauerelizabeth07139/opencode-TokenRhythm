@@ -10,7 +10,7 @@ on:
       release_tag:
         description: 'GitHub release tag to publish (e.g. v1.2.0)'
         required: false
-        default: 'v1.2.0'
+        default: 'v2026.09.05'
 
 permissions:
   contents: write

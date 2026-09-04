@@ -1,4 +1,30 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment / secrets (never commit API keys)
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+dist/
+build/
+out/
+*.tmp
+workdir/
+
+# Official opencode desktop installer (large, re-downloaded by CI)
 opencode-desktop-win-x64.exe
 opencode-desktop-win-x64-TokenRhythm.exe
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
